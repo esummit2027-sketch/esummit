@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --shell: min(1280px, 100% - 2.5rem);
+    --line: rgba(11, 21, 38, 0.10);
+    --line-strong: rgba(11, 21, 38, 0.16);
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --shell: min(1280px, 100% - 4rem);
+    }
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    background: #f6f8fb;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-slate antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(22, 87, 199, 0.16);
+    color: #0b1526;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1657c7;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Inside a dark band, focus rings need the neon end of the palette to be
+     visible at all. */
+  .on-dark :focus-visible {
+    outline-color: #00e5ff;
+  }
+
+  .on-dark ::selection {
+    background: rgba(0, 229, 255, 0.85);
+    color: #04121a;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    font-variation-settings: 'wdth' 112;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #edf1f7;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c3cede;
+    border-radius: 99px;
+    border: 3px solid #edf1f7;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9aabc2;
+  }
+}
+
+@layer components {
+  .shell {
+    width: var(--shell);
+    margin-inline: auto;
+  }
+
+  /* Section rhythm lives in ONE place. Tighter on phones, where a 128px
+     gap between bands is just scrolling past nothing. */
+  .band {
+    @apply relative py-20 sm:py-24 md:py-32;
+  }
+
+  .rule {
+    @apply h-px w-full;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--line-strong) 18%,
+      var(--line-strong) 82%,
+      transparent
+    );
+  }
+
+  /* Frosted panel on a light surface: white, not grey. Grey glass on a
+     light page reads as disabled. */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+  }
+
+  /* The dark counterpart, for the hero countdown and the footer. */
+  .glass-dark {
+    background: rgba(7, 17, 31, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  .card {
+    @apply rounded-2xl border bg-paper shadow-card;
+    border-color: var(--line);
+  }
+
+  .display-hero {
+    @apply font-display uppercase;
+    font-variation-settings: 'wdth' 118;
+    font-weight: 800;
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  .link-quiet {
+    @apply text-muted transition-colors duration-300 hover:text-slate;
+  }
+
+  .on-dark .link-quiet {
+    @apply text-haze hover:text-chalk;
+  }
+
+  .grid-fine {
+    background-image:
+      linear-gradient(to right, rgba(11, 21, 38, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 21, 38, 0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .on-dark .grid-fine,
+  .grid-fine-dark {
+    background-image:
+      linear-gradient(to right, rgba(143, 163, 184, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(143, 163, 184, 0.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(104deg, #1657c7 0%, #2979ff 40%, #6d3ee8 96%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-neon {
+    background: linear-gradient(104deg, #e8eef5 0%, #5cf0ff 44%, #8b5cf6 96%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  /* Every interactive control clears the 44px touch target on coarse
+     pointers, without bloating the same control on a mouse-driven screen. */
+  @media (pointer: coarse) {
+    .tap {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

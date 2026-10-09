@@ -1,0 +1,100 @@
+# ============================================================================
+#  E-Summit NIT Meghalaya — Apache configuration for Hostinger shared hosting
+#  This file is copied verbatim into dist/ by Vite. Upload it alongside
+#  index.html. Hidden files are not shown by default in Hostinger's File
+#  Manager — turn on "Show hidden files" in the settings menu to see it.
+# ============================================================================
+
+# ---------------------------------------------------------------------------
+#  1. Single-page fallback
+#  The site is one page with in-page anchors, so this is mostly insurance.
+#  It matters the moment you add React Router: without it, refreshing on
+#  /events would ask Apache for a folder that does not exist and return 404.
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Never rewrite a request for a file or directory that actually exists.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else is handed to the app.
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+#  2. MIME types
+#  Some shared hosts still serve .webm and .mp4 with the wrong type, which
+#  makes the browser refuse to play them. Declaring them costs nothing.
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4 .m4v
+  AddType video/webm .webm
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+  AddType application/javascript .js .mjs
+</IfModule>
+
+# ---------------------------------------------------------------------------
+#  3. Compression
+#  Video and images are already compressed — do not re-compress them.
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+#  4. Caching
+#  Vite fingerprints filenames in assets/, so those are safe to cache for a
+#  year. index.html must never be cached or visitors will keep seeing the
+#  old build after you re-upload. Video is cached for a month; if you swap
+#  the file and want the change seen immediately, rename it and update
+#  src/config/siteConfig.ts.
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType video/webm "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Range requests are what let a browser start a video before it finishes
+  # downloading. Advertise support explicitly.
+  <FilesMatch "\.(mp4|webm)$">
+    Header set Accept-Ranges "bytes"
+  </FilesMatch>
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---------------------------------------------------------------------------
+#  5. Send visitors to HTTPS once your SSL certificate is active in hPanel.
+#  Leave commented until the certificate is issued, or you will lock yourself
+#  out of an unencrypted site.
+# ---------------------------------------------------------------------------
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+ErrorDocument 404 /index.html
