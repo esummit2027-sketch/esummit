@@ -4,12 +4,11 @@ import { ScrollVideoEffect } from './components/ScrollVideoEffect';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Events } from './components/Events';
-import { Speakers } from './components/Speakers';
+// import { Speakers } from './components/Speakers';
 import { StartupZone } from './components/StartupZone';
-import { Schedule } from './components/Schedule';
 import { Campus } from './components/Campus';
 import { Sponsors } from './components/Sponsors';
-import { Gallery } from './components/Gallery';
+// import { Gallery } from './components/Gallery';
 import { FAQ } from './components/FAQ';
 import { Team } from './components/Team';
 import { FinalCta } from './components/FinalCta';
@@ -20,11 +19,11 @@ const SECTION_IDS = [
   'home',
   'about',
   'events',
-  'speakers',
-  'schedule',
-  'startup-zone',
+  // 'speakers',
+  'northeast',
+  'attendees',
+  'next-gen',
   'sponsors',
-  'team',
   'contact',
 ];
 
@@ -47,14 +46,12 @@ export default function App() {
 
         <About />
         <Events />
-        <Speakers />
+        {/* <Speakers /> */}
         <StartupZone />
-        <Schedule />
+        <Team />
         <Campus />
         <Sponsors />
-        <Gallery />
         <FAQ />
-        <Team />
         <FinalCta />
       </main>
 

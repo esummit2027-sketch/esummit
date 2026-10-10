@@ -26,17 +26,17 @@ export const siteConfig = {
   /* ---------------------------------------------------------------------
      EVENT IDENTITY
      --------------------------------------------------------------------- */
-  eventName: 'E-Summit',
-  institute: 'NIT Meghalaya',
+  eventName: 'WISF 2027',
+  institute: '',
   instituteFull: 'National Institute of Technology Meghalaya',
-  edition: '2026',
-  tagline: 'Build. Innovate. Disrupt.',
+  edition: '2027',
+  tagline: 'IGNITE INNOVATION • UNLOCK CAPITAL • CELEBRATE CULTURE',
 
   /* Countdown target. ISO 8601 with the +05:30 offset so the timer is
      correct for visitors in any timezone. Update this to your real date. */
-  startsAt: '2026-11-06T09:30:00+05:30',
-  dateLabel: '6–8 November 2026',
-  venue: 'NIT Meghalaya · Shillong',
+  startsAt: '2027-04-25T09:30:00+05:30',
+  dateLabel: 'Late April – Early May 2027',
+  venue: 'Shillong, Meghalaya',
 
   /* ---------------------------------------------------------------------
      LINKS — replace the '#' placeholders with real destinations.
@@ -46,20 +46,18 @@ export const siteConfig = {
       'https://docs.google.com/forms/d/e/1FAIpQLSdeqfogJHJjbLgaxrQZj5VoHFopSkufMvrCZHd3RZuZ5wIxaA/viewform?usp=publish-editor',
     brochure: '#',
     sponsorDeck: '#',
-    instagram: 'https://instagram.com/',
-    linkedin: 'https://linkedin.com/',
-    x: 'https://x.com/',
-    youtube: 'https://youtube.com/',
-    maps: 'https://maps.google.com/?q=National+Institute+of+Technology+Meghalaya',
+    instagram: 'https://www.instagram.com/ecell_nitmeghalaya/',
+    linkedin: 'https://www.linkedin.com/company/e-cell-nit-meghalaya',
+    x: 'https://x.com/ecell_nitm',
+    youtube: 'https://www.youtube.com/@nitm_ecell',
+    maps: 'https://www.google.com/maps/place/National+Institute+of+Technology+Meghalaya/@25.2575314,91.7379284,1055m/data=!3m1!1e3!4m6!3m5!1s0x3750f34447df0aa9:0xaf2daa97d7d1fba8!8m2!3d25.2568253!4d91.7412546!16s%2Fg%2F11b75jb3m2?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D',
   },
 
   contact: {
-    email: 'esummit@nitm.ac.in',
-    sponsorEmail: 'partnerships.esummit@nitm.ac.in',
-    phone: '+91 00000 00000',
+    email: 'swisf2027@gmail.com',
+    sponsorEmail: 'swisf2027@gmail.com',
+    phone: '+91 73036 18662',
     addressLines: [
-      'National Institute of Technology Meghalaya',
-      'Bijni Complex, Laitumkhrah',
       'Shillong 793003, Meghalaya, India',
     ],
   },

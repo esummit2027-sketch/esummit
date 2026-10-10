@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { navItems } from '../data/nav';
 import { siteConfig } from '../config/siteConfig';
-import { cx } from '../lib/asset';
+import { cx, asset } from '../lib/asset';
 
 export function Navbar({ active }: { active: string }) {
   const [scrolled, setScrolled] = useState(false);
@@ -63,8 +63,8 @@ export function Navbar({ active }: { active: string }) {
           )}
           aria-label="Primary"
         >
-          <a href="#home" className="flex items-center gap-3" aria-label="E-Summit, NIT Meghalaya, home">
-            <Mark />
+          <a href="#home" className="flex items-center gap-3" aria-label="WISF 2027, copowered by BSE, home">
+            <img src={asset('/logos/swisf-logo.png')} alt="" className="h-9 w-auto" />
             <span className="leading-none">
               <span
                 className={cx(
@@ -72,15 +72,16 @@ export function Navbar({ active }: { active: string }) {
                   scrolled ? 'text-slate' : 'text-chalk',
                 )}
               >
-                E-Summit
+                WISF 2027
               </span>
               <span
                 className={cx(
-                  'mt-[3px] block text-[9.5px] font-medium tracking-[0.22em] transition-colors duration-500',
+                  'mt-[3px] flex items-center gap-1.5 text-[9.5px] font-medium tracking-[0.22em] transition-colors duration-500',
                   scrolled ? 'text-muted' : 'text-haze',
                 )}
               >
-                NIT MEGHALAYA
+                <span>COPOWERED BY</span>
+                <img src={asset('/logos/bse.png')} alt="BSE" className="h-3.5 w-auto" />
               </span>
             </span>
           </a>
@@ -221,15 +222,4 @@ export function Navbar({ active }: { active: string }) {
   );
 }
 
-/** Wordless mark: an E built from three stacked bars — build, innovate, disrupt. */
-function Mark() {
-  return (
-    <span className="relative flex h-9 w-9 items-center justify-center rounded-[11px] bg-gradient-to-br from-cyan/25 to-violet/30 ring-1 ring-inset ring-slate/10">
-      <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
-        <rect x="1" y="1.5" width="15" height="2.6" rx="1.3" fill="#00E5FF" />
-        <rect x="1" y="7.2" width="10" height="2.6" rx="1.3" fill="#2979FF" />
-        <rect x="1" y="12.9" width="15" height="2.6" rx="1.3" fill="#8B5CF6" />
-      </svg>
-    </span>
-  );
-}
+

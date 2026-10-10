@@ -73,7 +73,7 @@ export function Campus() {
   const imageY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
 
   return (
-    <section ref={ref} id="campus" className="on-dark band relative overflow-hidden bg-void">
+    <section ref={ref} id="next-gen" className="on-dark band relative overflow-hidden bg-void">
       {/* Terrain plate */}
       <motion.div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[72%] will-change-transform"
@@ -103,38 +103,46 @@ export function Campus() {
       <div className="shell relative">
         <Reveal>
           <SectionHeading
-            index="07"
+            index="05"
             tone="dark"
-            kicker="Where it happens"
-            title={<>Innovation in the Abode of Clouds</>}
-            lede="NIT Meghalaya sits in Shillong, at the edge of one of the least-mapped startup ecosystems in the country. That is not a disadvantage to be apologised for — it is the design constraint that makes the work here different."
+            kicker="The Next Generation"
+            title={<>Bringing teachers, parents and young minds into the innovation story.</>}
+            lede="Through E-Cell’s Project Sunray, WISF 2027 reaches schools across Meghalaya and the Northeast. Students build, present and learn alongside founders and mentors, and their families get a front-row seat to the region’s innovation story."
           />
         </Reveal>
 
         <Reveal delay={0.1}>
           {/* The three-term line is set as type, not as a badge. */}
           <div className="mt-14 flex flex-wrap items-baseline gap-x-6 gap-y-2 font-display text-[clamp(1.4rem,4.4vw,3.1rem)] font-extrabold uppercase leading-none tracking-tightest">
-            <span className="text-chalk">Nature</span>
+            <span className="text-chalk">Build</span>
             <span className="text-cyan/60">&times;</span>
-            <span className="text-chalk">Technology</span>
+            <span className="text-chalk">Showcase</span>
             <span className="text-violet/70">&times;</span>
-            <span className="text-gradient-neon">Innovation</span>
+            <span className="text-gradient-neon">Learn</span>
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-3">
+        <div className="mt-14 grid gap-10 md:grid-cols-4">
           {[
             {
-              h: 'Built for hard terrain',
-              p: 'Logistics, connectivity and power are not abstractions here. Ventures that work in these hills tend to work anywhere.',
+              h: '01. Reach Out',
+              time: 'Months ahead',
+              p: 'Schools across the region are invited to take part.',
             },
             {
-              h: 'A young ecosystem',
-              p: 'The state startup mission, the campus incubation centre and a handful of funds are all still small enough that a good idea reaches the right person quickly.',
+              h: '02. Build',
+              time: 'In the run-up',
+              p: 'Student teams develop projects with mentors from NIT Meghalaya.',
             },
             {
-              h: 'Reason to stay',
-              p: 'Most of the region\u2019s talent leaves for a metro. The summit exists partly to argue that it no longer has to.',
+              h: '03. Showcase',
+              time: 'At WISF 2027',
+              p: 'The best projects take the stage at the Schools Innovation Showcase.',
+            },
+            {
+              h: '04. Learn',
+              time: 'During the summit',
+              p: 'Students and families join financial-literacy and investor-awareness sessions.',
             },
           ].map((item, i) => (
             <Reveal key={item.h} delay={0.06 + i * 0.07}>
@@ -142,6 +150,9 @@ export function Campus() {
                 <h3 className="font-display text-[16px] font-bold uppercase tracking-[0.06em] text-chalk">
                   {item.h}
                 </h3>
+                <span className="mt-1 block text-[13px] font-bold tracking-[0.14em] text-cyan/80 uppercase">
+                  {item.time}
+                </span>
                 <p className="mt-3 text-[14.5px] leading-relaxed text-haze">{item.p}</p>
               </div>
             </Reveal>

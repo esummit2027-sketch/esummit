@@ -26,14 +26,13 @@ export function Footer() {
           {/* Identity */}
           <div className="lg:col-span-5">
             <p className="font-display text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold uppercase leading-none tracking-tightest text-chalk">
-              E-Summit
+              WISF 2027
             </p>
             <p className="mt-2 text-[13px] font-medium tracking-[0.22em] text-cyan/85">
-              NIT MEGHALAYA
+              CO-POWERED BY BOMBAY STOCK EXCHANGE
             </p>
             <p className="mt-6 max-w-[38ch] text-[14.5px] leading-relaxed text-haze">
-              {siteConfig.tagline} The flagship entrepreneurship and innovation summit
-              of {siteConfig.instituteFull}.
+              {siteConfig.tagline} <br /> A three-day summit and festival in Shillong, Meghalaya.
             </p>
 
             <div className="mt-8 flex items-center gap-2.5">
@@ -129,9 +128,9 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col gap-3 text-[13px] text-haze/75 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {year} E-Summit {siteConfig.institute}. All rights reserved.
+            &copy; {year} WISF 2027. All rights reserved. Organised in association with E-Cell NIT Meghalaya.
           </p>
-          <p>Built and maintained by the E-Cell web team.</p>
+          <p>Built and maintained by the WISF web team.</p>
         </div>
       </div>
     </footer>

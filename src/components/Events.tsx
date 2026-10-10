@@ -32,8 +32,8 @@ export function Events() {
           <SectionHeading
             index="02"
             kicker="What happens"
-            title={<>Experience the future</>}
-            lede="Seven tracks across three days. Some are competitions with prize money, some are working rooms with forty seats. Every one of them ends with you having made or decided something."
+            title={<>Two worlds in one city</>}
+            lede="The summit by day brings founders, investors, students and leaders into one room. The festival by night fills the city with music."
           />
         </Reveal>
 

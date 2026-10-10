@@ -13,10 +13,10 @@ export function FAQ() {
     <section id="faq" className="band bg-canvas">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-5">
             <Reveal>
               <SectionHeading
-                index="10"
+                index="07"
                 kicker="Before you ask"
                 title={
                   <>
@@ -42,7 +42,7 @@ export function FAQ() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             <ul>
               {faqs.map((item, i) => {
                 const isOpen = open === i;

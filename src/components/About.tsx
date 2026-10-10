@@ -9,37 +9,24 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: 5000, suffix: '+', label: 'Participants', note: 'across three days' },
-  { value: 50, suffix: '+', label: 'Speakers', note: 'founders, operators, investors' },
-  { value: 30, suffix: '+', label: 'Events', note: 'competitions and sessions' },
-  { value: 20, suffix: '+', label: 'Startups', note: 'demoing on the expo floor' },
-  { value: 10, suffix: '+', label: 'Partners', note: 'backing the summit' },
+  { value: 3, suffix: '', label: 'Days', note: 'Of summit and festival' },
+  { value: 2, suffix: '', label: 'Worlds', note: 'Summit by day, festival by night' },
+  { value: 1, suffix: '', label: 'City', note: 'Shillong, the concert capital of India' },
+  { value: 8, suffix: '', label: 'States', note: 'One stage for the entire Northeast' },
 ];
 
 const pillars = [
   {
-    title: 'Entrepreneurship',
-    body: 'The unglamorous parts — first customers, first hires, first refusals.',
-  },
-  {
     title: 'Innovation',
-    body: 'Ideas taken far enough to break, then rebuilt in front of a room.',
+    body: 'Ideas, startups and the people building them.',
   },
   {
-    title: 'Artificial intelligence',
-    body: 'What is genuinely in production, separated from what is still a slide.',
+    title: 'Capital',
+    body: 'Investors, mentors and the knowledge to grow.',
   },
   {
-    title: 'Startups',
-    body: 'Teams at every stage, from a notebook sketch to a signed term sheet.',
-  },
-  {
-    title: 'Technology',
-    body: 'Hardware, climate tooling and software built for hard terrain.',
-  },
-  {
-    title: 'Sustainability',
-    body: 'Ventures that have to work inside real ecological limits.',
+    title: 'Culture',
+    body: 'Music, community and the spirit of the hills.',
   },
 ];
 
@@ -75,13 +62,11 @@ export function About() {
               <SectionHeading
                 index="01"
                 kicker="About the summit"
-                title={<>The future starts here.</>}
+                title={<>One stage for the entire Northeast.</>}
                 lede={
                   <>
-                    E-Summit is the flagship entrepreneurship and innovation summit of
-                    NIT Meghalaya. For three days it puts students, founders, investors,
-                    industry leaders and the merely curious in the same rooms — and gives
-                    them something harder than a lecture to do together.
+                    WISF 2027 is a three-day summit and festival in Shillong, Meghalaya.
+                    By day, the summit brings founders, investors, students and leaders into one room. By night, the festival fills the city with music.
                   </>
                 }
               />
@@ -89,10 +74,7 @@ export function About() {
 
             <Reveal delay={0.08}>
               <p className="mt-6 max-w-[62ch] text-[17px] leading-relaxed text-muted">
-                It is organised by the student Entrepreneurship Cell, and it runs on a
-                simple bet: that the fastest way to learn how a company gets built is to
-                stand next to people who are building one, and then try it yourself
-                before the weekend ends.
+                It is built to connect the region’s talent with India’s innovation and finance ecosystem, and with the world. The talent is here, and so are the ideas. WISF 2027 exists to give founders that national and global exposure.
               </p>
             </Reveal>
           </div>

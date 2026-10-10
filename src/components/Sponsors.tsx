@@ -37,7 +37,12 @@ function SponsorTile({ sponsor, tier }: { sponsor: Sponsor; tier: SponsorTier })
       alt={sponsor.name}
       loading="lazy"
       decoding="async"
-      className="max-h-[58%] w-auto max-w-[76%] object-contain opacity-70 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+      className={cx(
+        'max-h-[58%] w-auto max-w-[76%] object-contain transition-all duration-500',
+        tier.weight === 1
+          ? 'opacity-100 grayscale-0'
+          : 'opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0'
+      )}
     />
   ) : (
     <span
@@ -90,7 +95,7 @@ export function Sponsors() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="08"
+            index="06"
             kicker="Partners"
             title={<>Powering the future</>}
             lede="E-Summit runs on the companies, funds and institutions that decide a room full of first-time builders is worth showing up for."
@@ -135,7 +140,7 @@ export function Sponsors() {
             </div>
 
             <a
-              href={`mailto:${siteConfig.contact.sponsorEmail}`}
+              href="mailto:swisf2027@gmail.com"
               className="tap group inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full border border-accent/40 bg-accent/[0.08] px-7 py-3.5 font-display text-[13px] font-bold uppercase tracking-[0.1em] text-accent transition-colors duration-300 hover:bg-accent hover:text-white sm:w-auto"
             >
               Request the deck
