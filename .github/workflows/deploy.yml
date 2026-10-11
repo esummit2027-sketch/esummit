@@ -1,0 +1,60 @@
+# ============================================================================
+#  Build the site and publish it to GitHub Pages.
+#
+#  GitHub Pages serves repository files verbatim — it never runs a build. This
+#  workflow runs `npm run build` on GitHub's machines and publishes the
+#  resulting dist/ folder, which is what Pages should have been serving.
+#
+#  Setup (once): repo Settings -> Pages -> Build and deployment -> Source,
+#  change from "Deploy from a branch" to "GitHub Actions". Until you do that,
+#  Pages keeps serving the raw source and the site stays blank.
+# ============================================================================
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Lets you re-run a deploy by hand from the Actions tab without a new commit.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# If you push twice quickly, finish the newer deploy and drop the older one.
+# Never cancel a run already mid-deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # `npm ci` installs exactly what package-lock.json pins, so the build
+      # on GitHub matches the one on your laptop.
+      - run: npm ci
+
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
