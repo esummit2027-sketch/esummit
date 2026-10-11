@@ -107,7 +107,7 @@ export function Campus() {
             tone="dark"
             kicker="The Next Generation"
             title={<>Bringing teachers, parents and young minds into the innovation story.</>}
-            lede="Through E-Cell’s Project Sunray, WISF 2027 reaches schools across Meghalaya and the Northeast. Students build, present and learn alongside founders and mentors, and their families get a front-row seat to the region’s innovation story."
+            lede="Through E-Cell’s Project Sunray, SWISF 2027 reaches schools across Meghalaya and the Northeast. Students build, present and learn alongside founders and mentors, and their families get a front-row seat to the region’s innovation story."
           />
         </Reveal>
 
@@ -136,7 +136,7 @@ export function Campus() {
             },
             {
               h: '03. Showcase',
-              time: 'At WISF 2027',
+              time: 'At SWISF 2027',
               p: 'The best projects take the stage at the Schools Innovation Showcase.',
             },
             {

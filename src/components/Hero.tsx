@@ -25,22 +25,20 @@ const WORDS = ['World', 'Innovation', 'Summit &', 'Festival'];
 export function Hero() {
   return (
     <motion.div
-      className="flex h-full flex-col justify-between pb-12 pt-16 sm:pb-16 md:pt-20"
+      className="flex h-full flex-col justify-between pb-4 pt-16 sm:pb-6 md:pb-8 md:pt-20"
       variants={stagger}
       initial="hidden"
       animate="shown"
     >
       <div className="shell flex flex-1 flex-col justify-center">
-        {/* Identity line removed as per request */}
-
-        {/* Headline. Three lines, each on its own baseline, clipped so the
+        {/* Headline. Four lines, each on its own baseline, clipped so the
             wipe reveals from beneath a hard edge. */}
-        <h1 className="mt-6">
+        <h1 className="mt-3 sm:mt-4">
           {WORDS.map((word) => (
-            <span key={word} className="block overflow-hidden pb-[0.06em]">
+            <span key={word} className="block overflow-hidden pb-[0.04em]">
               <motion.span
                 variants={wipe}
-                className="display-hero block text-[clamp(2.9rem,min(10.5vw,11.5vh),7.5rem)] text-chalk"
+                className="display-hero block text-[clamp(2.4rem,min(9.5vw,8.2vh),6.6rem)] text-chalk"
               >
                 {word}
               </motion.span>
@@ -50,48 +48,54 @@ export function Hero() {
 
         <motion.p
           variants={rise}
-          className="mt-7 flex items-center gap-2 max-w-[46ch] text-[clamp(1.1rem,1.9vw,1.4rem)] leading-relaxed text-chalk/80"
+          className="mt-3 sm:mt-4 flex items-center gap-2 max-w-[46ch] text-[clamp(0.95rem,1.4vw,1.25rem)] leading-snug text-chalk/80"
         >
           <span>Copowered by Bombay Stock Exchange</span>
         </motion.p>
 
         <motion.div
           variants={rise}
-          className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3 text-[14px] text-haze"
+          className="mt-4 sm:mt-6 flex flex-row flex-wrap items-center gap-3 sm:gap-4"
         >
-          <span className="inline-flex items-center gap-2">
-            <CalendarDays size={16} className="text-cyan/80" aria-hidden="true" />
-            {siteConfig.dateLabel}
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <MapPin size={16} className="text-cyan/80" aria-hidden="true" />
-            {siteConfig.venue}
-          </span>
-        </motion.div>
-
-        <motion.div variants={rise} className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
           <PrimaryCta href={siteConfig.links.register} tone="dark">
             Register now
           </PrimaryCta>
           <GhostCta href="#about" tone="dark">
-            Explore WISF
+            Explore SWISF
           </GhostCta>
         </motion.div>
       </div>
 
-      {/* Bottom rail: countdown on the left, scroll hint on the right. */}
-      <div className="shell mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <motion.div variants={rise}>
-          <Countdown />
-        </motion.div>
+      {/* Bottom rail: countdown on the left, date & location towards its right, scroll hint on the far right. */}
+      <div className="shell mt-4 sm:mt-6 flex flex-col gap-3.5 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <motion.div variants={rise}>
+            <Countdown />
+          </motion.div>
+
+          {/* Date & Location towards the right of the countdown */}
+          <motion.div
+            variants={rise}
+            className="flex flex-row flex-wrap items-center gap-x-5 gap-y-1.5 text-[12px] sm:flex-col sm:items-start sm:gap-1.5 sm:text-[13px] text-haze"
+          >
+            <span className="inline-flex items-center gap-2">
+              <CalendarDays size={15} className="text-cyan/80" aria-hidden="true" />
+              {siteConfig.dateLabel}
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <MapPin size={15} className="text-cyan/80" aria-hidden="true" />
+              {siteConfig.venue}
+            </span>
+          </motion.div>
+        </div>
 
         <motion.a
           variants={rise}
           href="#about"
-          className="group hidden items-center gap-3 self-end text-[11px] font-medium tracking-[0.24em] text-haze transition-colors hover:text-cyan sm:inline-flex"
+          className="group hidden items-center gap-3 self-end text-[11px] font-medium tracking-[0.24em] text-haze transition-colors hover:text-cyan lg:inline-flex"
         >
           SCROLL TO EXPLORE
-          <span className="relative flex h-9 w-5 items-start justify-center rounded-full border border-white/25 pt-1.5 transition-colors group-hover:border-cyan/60">
+          <span className="relative flex h-8 w-4.5 items-start justify-center rounded-full border border-white/25 pt-1.5 transition-colors group-hover:border-cyan/60">
             <span className="h-1.5 w-1 animate-scroll-hint rounded-full bg-cyan" />
           </span>
         </motion.a>

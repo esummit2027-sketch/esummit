@@ -26,7 +26,7 @@ export function Footer() {
           {/* Identity */}
           <div className="lg:col-span-5">
             <p className="font-display text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold uppercase leading-none tracking-tightest text-chalk">
-              WISF 2027
+              SWISF 2027
             </p>
             <p className="mt-2 text-[13px] font-medium tracking-[0.22em] text-cyan/85">
               CO-POWERED BY BOMBAY STOCK EXCHANGE
@@ -128,9 +128,9 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col gap-3 text-[13px] text-haze/75 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {year} WISF 2027. All rights reserved. Organised in association with E-Cell NIT Meghalaya.
+            &copy; {year} SWISF 2027. All rights reserved. Organised in association with E-Cell NIT Meghalaya.
           </p>
-          <p>Built and maintained by the WISF web team.</p>
+          <p>Built and maintained by the SWISF web team.</p>
         </div>
       </div>
     </footer>

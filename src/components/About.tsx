@@ -65,7 +65,7 @@ export function About() {
                 title={<>One stage for the entire Northeast.</>}
                 lede={
                   <>
-                    WISF 2027 is a three-day summit and festival in Shillong, Meghalaya.
+                    SWISF 2027 is a three-day summit and festival in Shillong, Meghalaya.
                     By day, the summit brings founders, investors, students and leaders into one room. By night, the festival fills the city with music.
                   </>
                 }
@@ -74,7 +74,7 @@ export function About() {
 
             <Reveal delay={0.08}>
               <p className="mt-6 max-w-[62ch] text-[17px] leading-relaxed text-muted">
-                It is built to connect the region’s talent with India’s innovation and finance ecosystem, and with the world. The talent is here, and so are the ideas. WISF 2027 exists to give founders that national and global exposure.
+                It is built to connect the region’s talent with India’s innovation and finance ecosystem, and with the world. The talent is here, and so are the ideas. SWISF 2027 exists to give founders that national and global exposure.
               </p>
             </Reveal>
           </div>

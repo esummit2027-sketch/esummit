@@ -63,25 +63,36 @@ export function Navbar({ active }: { active: string }) {
           )}
           aria-label="Primary"
         >
-          <a href="#home" className="flex items-center gap-3" aria-label="WISF 2027, copowered by BSE, home">
-            <img src={asset('/logos/swisf-logo.png')} alt="" className="h-9 w-auto" />
-            <span className="leading-none">
+          <a href="#home" className="flex items-center gap-3 sm:gap-3.5" aria-label="SWISF 2027, copowered by BSE, home">
+            <img src={asset('/logos/swisf-logo.png')} alt="" className="h-9 w-auto shrink-0" />
+            <span
+              className={cx(
+                'font-display text-[15px] font-extrabold uppercase tracking-[0.14em] transition-colors duration-500 whitespace-nowrap',
+                scrolled ? 'text-slate' : 'text-chalk',
+              )}
+            >
+              SWISF 2027
+            </span>
+            <span
+              className={cx(
+                'h-6 w-[1.5px] transition-colors duration-500 shrink-0',
+                scrolled ? 'bg-slate/20' : 'bg-white/25',
+              )}
+              aria-hidden="true"
+            />
+            <span className="flex flex-col items-center justify-center shrink-0">
+              <img
+                src={asset(scrolled ? '/logos/bse.png' : '/logos/bse-white.png')}
+                alt="BSE"
+                className="h-4 sm:h-[18px] w-auto object-contain transition-opacity duration-300"
+              />
               <span
                 className={cx(
-                  'block font-display text-[15px] font-extrabold uppercase tracking-[0.14em] transition-colors duration-500',
-                  scrolled ? 'text-slate' : 'text-chalk',
-                )}
-              >
-                WISF 2027
-              </span>
-              <span
-                className={cx(
-                  'mt-[3px] flex items-center gap-1.5 text-[9.5px] font-medium tracking-[0.22em] transition-colors duration-500',
+                  'mt-0.5 text-[7.5px] font-semibold uppercase tracking-[0.18em] transition-colors duration-500 whitespace-nowrap leading-none',
                   scrolled ? 'text-muted' : 'text-haze',
                 )}
               >
-                <span>COPOWERED BY</span>
-                <img src={asset('/logos/bse.png')} alt="BSE" className="h-3.5 w-auto" />
+                COPOWERED BY
               </span>
             </span>
           </a>

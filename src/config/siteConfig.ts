@@ -26,7 +26,7 @@ export const siteConfig = {
   /* ---------------------------------------------------------------------
      EVENT IDENTITY
      --------------------------------------------------------------------- */
-  eventName: 'WISF 2027',
+  eventName: 'SWISF 2027',
   institute: '',
   instituteFull: 'National Institute of Technology Meghalaya',
   edition: '2027',

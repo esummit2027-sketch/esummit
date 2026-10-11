@@ -21,7 +21,6 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
     background: #f6f8fb;
   }
 
@@ -92,7 +91,7 @@
   /* Section rhythm lives in ONE place. Tighter on phones, where a 128px
      gap between bands is just scrolling past nothing. */
   .band {
-    @apply relative py-20 sm:py-24 md:py-32;
+    @apply relative pt-20 pb-20 sm:pt-24 sm:pb-24 md:pt-24 md:pb-28;
   }
 
   .rule {

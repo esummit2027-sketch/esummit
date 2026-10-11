@@ -20,7 +20,7 @@ export function Team() {
             index="04"
             kicker="Who comes together"
             title={<>One stage for every voice</>}
-            lede="Many collaborators. One shared vision: a stronger Northeast. WISF 2027 welcomes partners, speakers and guests from organisations across India and the world."
+            lede="Many collaborators. One shared vision: a stronger Northeast. SWISF 2027 welcomes partners, speakers and guests from organisations across India and the world."
           />
         </Reveal>
 

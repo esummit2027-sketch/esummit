@@ -97,10 +97,10 @@ function RegionPotential() {
   );
 }
 
-function WISFBrings() {
+function SWISFBrings() {
   return (
     <div className="mt-14">
-      <h3 className="font-display text-lg font-extrabold uppercase text-slate mb-6">What WISF Brings</h3>
+      <h3 className="font-display text-lg font-extrabold uppercase text-slate mb-6">What SWISF Brings</h3>
       <div className="grid gap-px overflow-hidden rounded-2xl border border-slate/10 bg-slate/[0.08] shadow-card sm:grid-cols-2 lg:grid-cols-4">
         {brings.map((r, i) => {
           const Icon = r.icon;
@@ -145,7 +145,7 @@ export function StartupZone() {
         </Reveal>
 
         <RegionPotential />
-        <WISFBrings />
+        <SWISFBrings />
       </div>
     </section>
   );
